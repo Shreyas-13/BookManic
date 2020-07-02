@@ -1,0 +1,47 @@
+<%- include('../partials/header.ejs'); %>
+<div class="jumbotron container mt-5">
+    <div class="container">
+        <h1 class="display-3" id="jumbh1">BookManiac</h1>
+        <p class=" display-5 pt-0 mt-0" id="slo">Choose before you read!!!</p>
+        <div class="form-group">
+            <form action="/books" method="GET" id="search">
+                <input type="text" placeholder="Search" name="search" class="rounded" id="searchBox">
+                <button class="btn btn-sm btn-success">Search</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<h1 class="display-4 text-center text-white" id="head">
+    BookManiac
+</h1> 
+<hr> 
+    <div class="container">
+        <div class="row d-flex">
+            <% info.forEach(function(info){ %>
+            <div class="col-md-6 col-lg-4 mb-3">
+                        <div class="card">
+                            <img src="<%= info.image %>" alt="" class="card-img-top" style="height: 200px;">
+                            <div class="card-body">
+                                <h4 class="card-title"><%= info.title.substring(0 , 25) %>...</h4>
+                                <h6 class="card-subtitle" id="bold">-<%= info.author %></h6>
+                                <p class="card-text"><%= info.description.substring(0 , 70) %>...</p>
+                                <a href="/books/<%= info._id %>" id="info" class="d-flex">Read More</a>
+                            </div>
+                        </div>
+            </div>
+            <% }); %>  
+        </div>
+    </div>
+    <% if(info.length == 0){ %>
+        <div class="container">
+            <p>
+                No book found , please try again with different name.
+            </p>
+        </div>
+    <% } %>
+<footer>
+    
+</footer>
+
+<%- include('../partials/footer.ejs'); %>

@@ -1,0 +1,69 @@
+<%- include('../partials/header.ejs'); %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+       
+        <div class="col-sm-12 col-md-8 border mt-3 mb-3 m-3">
+            <h1 class="display-5 text-center" id="title"><%= info.title %></h1>
+            <hr>
+          
+                <img src="<%= info.image %>" alt="No Image Available" class="d-flex mx-auto img-responsive" id="imgshow">
+            <hr>
+            <div class="mt-2"> 
+                <p id="bignbold">Author : <%=info.author %></p>
+                <p id="bignbold">Publisher : <%=info.publisher %></p>
+                <p><em>Submitted By : <%=info.Creator.Name%></em></p>
+            </div>
+            <hr>
+            <div>
+                <p id="desc">
+                    <%-info.description %>
+                </p>
+            </div>
+            <% if(currentUser && info.Creator.id.equals(currentUser._id)){ %>
+            <div class="float-right">
+            <a href="/books/<%= info._id %>/edit" class="btn btn-outline-light mb-2">Update</a>
+            <form action="/books/<%=info.id %>?_method=DELETE" method="POST" class="d-inline">
+            <input type="submit" value="DELETE" class="btn btn-outline-light mb-2">
+            </form>
+            </div>
+            <% } %>
+            
+            <a href="/books/<%=info._id %>/reviews/new" class="btn btn-outline-light mb-2 float-left">Add a Review</a>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-sm-12 col-md-8 border mt-3 mb-3 m-3">
+            <h3 class="text-center">Reviews</h3>
+            <hr>
+            <% if(info.reviews.length==0){ %>
+                <p>No Reviews Available</p>
+           <% } %>
+           <% info.reviews.forEach((reviews)=>{ %>
+            <div class="row">
+                <div class="col-12">
+                    <strong><%= reviews.Creator.Name %></strong>
+                    <span class="float-right" id="date">
+                        <%= reviews.CreatedDate.toDateString() %>
+                    </span>
+                    <p>
+                        <%= reviews.Review %>
+                    </p>
+                    <% if(currentUser && reviews.Creator.id.equals(currentUser._id)){ %>
+                    <a href="/books/<%=info._id%>/reviews/<%=reviews._id%>/edit" class="btn btn-sm btn-outline-light mb-2">Edit</a>
+                    <form action="/books/<%=info._id%>/reviews/<%=reviews._id%>?_method=DELETE" class="d-inline" method="POST">
+                        <input type="submit" value="Delete" class="btn btn-sm btn-outline-light mb-2">
+                    </form>
+                    <% } %>
+                </div>
+            </div>
+            
+           <% }); %>
+           
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+<%- include('../partials/footer.ejs'); %>

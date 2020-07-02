@@ -1,0 +1,114 @@
+#info
+{
+    margin-top: -10px;
+}
+#head
+{
+    text-shadow: -4px -4px 15px rgba(223, 198, 255, 1);
+}
+#title
+{
+    font-weight: 400;
+}
+
+#jumbh1
+{
+    color: honeydew;
+}
+#slo
+{
+    font-size: 1.6rem;
+    margin-left: 80px;
+    color: honeydew;
+}
+#bold
+{
+    font-weight: 600;
+    color: rgba(90, 90, 90, 0.733);
+    font-size: 1.1rem;
+}
+#bignbold
+{
+    font-weight: 500;
+    letter-spacing: .1rem;
+    line-height: 1.5rem;
+    font-size: 1.1rem;
+    
+}
+#imgshow
+{
+    max-width: 100%;
+}
+#search
+{
+    margin-left: 82px;
+}
+#searchBox
+{
+    line-height: 1.7rem;
+}
+#date
+{
+    font-size: 1.1rem;
+}
+a.nav-link
+{
+    color:lightgray;
+    transition: all 600ms;
+}
+a.nav-link:hover
+{
+    color: white;
+}
+
+p
+{
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: .1rem;
+}
+body
+{
+    font-family: 'Source Sans Pro', sans-serif;
+    background:url("/stylesheet/images/1075.jpg");
+}
+strong
+{
+    font-size: 1.2rem;
+}
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    width: 80%;
+}
+footer
+{
+    padding-bottom: 100px;
+}
+.card{
+    height: 400px;
+}
+
+.jumbotron
+{
+    background: url("/stylesheet/images/jumb.jpg");
+    background-size: contain;
+}
+.label
+{
+    font-weight: bold;
+}
+@media (min-width:576px) and (max-width:768px)
+{
+    .card{
+        width: 30rem;
+        height: 400px;
+    }
+}
+@media (min-width:992px) and (max-width:1191px)
+{
+    .card{
+        height: 425px;
+    }
+}
